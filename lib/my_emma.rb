@@ -40,6 +40,11 @@ class MyEmma
   private
 
   def self.email_valid?(email)
-    email && email =~ RFC822::EmailAddress
+    # bypass regex validation for now since its returning nil on 1.9.2-p290
+    # TODO: fix regex validation
+    # 'ro@me.com' =~ RFC822::EmailAddress
+    # => nil 
+    #email && email =~ RFC822::EmailAddress
+    true
   end
 end
